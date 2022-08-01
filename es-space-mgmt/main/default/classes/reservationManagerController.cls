@@ -16,7 +16,7 @@ public with sharing class reservationManagerController {
                 for (Contact c  : [select Id, Email, Name, MailingCity, MailingState, Reservation_Status__c
                                from Contact
                                where Reservation_Status__c in ('Not Started') WITH SECURITY_ENFORCED]){
-                                CustomerServices.Customer cu = new CustomerServices.Customer(c.Name,c.Email,c.MailingCity,c.MailingState,c.Status,c.Id);
+                                CustomerServices.Customer cu = new CustomerServices.Customer(c.Name,c.Email,c.MailingCity,c.MailingState,c.Reservation_Status__c,c.Id);
                                 customers.add(cu);
                                }
             }
